@@ -41,15 +41,9 @@ function tinhDiem() {
   var diemKhoiB = toan + hoa + sinh;
   var diemKhoiC = van + su + dia;
   var diemKhoiD = toan + van + anh;
-  var diemTotNghiep =
-    (((toan + van + anh + (khtn + khxh) / 3 + diemuutien) / 4) * 7 +
-      diemtrungbinh12 * 3) /
-    10;
   var diemKhoiA = toan + li + hoa;
   document.getElementById("result").textContent =
-    "Điểm tốt nghiệp:      " +
-    diemTotNghiep.toFixed(2) +
-    "\n-----Điểm khối A:    " +
+    "Điểm khối A:    " +
     diemKhoiA.toFixed(2) +
     "\n-----Điểm khối B:    " +
     diemKhoiB.toFixed(2) +
@@ -62,16 +56,33 @@ function tinhDiem() {
   //  var diemKhoiATag = document.getElementById("diemKhoiA")
   //  diemKhoiATag.textContent = "Điểm khối A: "+diemKhoiA
   //   diemKhoiATag.style.display = "block"
+  var diemTotNghiep =
+    (((toan + van + anh + (khtn + khxh) / 3 + diemuutien) / 4) * 7 +
+      diemtrungbinh12 * 3) /
+    10;
+  var xettotnghiepTag = document.getElementById("totnghiep");
+  // xettotnghiepTag.textContent =
+  //   "Điểm tốt nghiệp:      " + diemTotNghiep.toFixed(2);
 
-  //   var xettotnghiepTag = document.getElementById("totnghiep");
-  //   xettotnghiepTag.textContent = "bsbab: " + diemTotNghiep;
-
-  //   if (diemTotNghiep < 5) {
-  //     document.getElementById("result").textContent = "Bạn đã rớt tốt nghiệp";
-  //   } else {
-  //     document.getElementById("result").textContent = "Bạn đã đậu tốt nghiệp";
-  //   }
-  //   xettotnghiepTag.style.display = "block";
+  if (
+    diemTotNghiep < 5 ||
+    toan <= 1 ||
+    li <= 1 ||
+    hoa <= 1 ||
+    sinh <= 1 ||
+    van <= 1 ||
+    anh <= 1 ||
+    su <= 1 ||
+    dia <= 1 ||
+    congdan <= 1
+  ) {
+    document.getElementById("totnghiep").textContent =
+      "Bạn đã rớt tốt nghiệp: " + diemTotNghiep.toFixed(2);
+  } else {
+    document.getElementById("totnghiep").textContent =
+      "Bạn đã đậu tốt nghiệp: " + diemTotNghiep.toFixed(2);
+  }
+  xettotnghiepTag.style.display = "block";
 }
 
 function reset() {
