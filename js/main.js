@@ -65,16 +65,19 @@ function tinhDiem() {
   //   "Điểm tốt nghiệp:      " + diemTotNghiep.toFixed(2);
 
   if (
-    diemTotNghiep < 5 ||
-    toan <= 1 ||
-    li <= 1 ||
-    hoa <= 1 ||
-    sinh <= 1 ||
-    van <= 1 ||
-    anh <= 1 ||
-    su <= 1 ||
-    dia <= 1 ||
-    congdan <= 1
+    (diemTotNghiep < 5 ||
+      toan <= 1 ||
+      li <= 1 ||
+      hoa <= 1 ||
+      sinh <= 1 ||
+      van <= 1) &&
+    (su == 0 || dia == 0 || congdan == 0)
+  ) {
+    document.getElementById("totnghiep").textContent =
+      "Bạn đã rớt tốt nghiệp: " + diemTotNghiep.toFixed(2);
+  } else if (
+    (diemTotNghiep < 5 || van <= 1 || su <= 1 || dia <= 1 || congdan <= 1) &&
+    (li == 0 || hoa == 0 || sinh == 0)
   ) {
     document.getElementById("totnghiep").textContent =
       "Bạn đã rớt tốt nghiệp: " + diemTotNghiep.toFixed(2);
