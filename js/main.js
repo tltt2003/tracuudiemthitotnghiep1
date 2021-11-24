@@ -100,5 +100,5 @@ function reset() {
   document.getElementById("diemuutien").value = "";
   document.getElementById("diemtrungbinh12").value = "";
   document.getElementById("result").style.display = "none";
-  document.getElementById("tinhDiem").style.display = "none";
+  document.getElementById("totnghiep").style.display = "none";
 }
